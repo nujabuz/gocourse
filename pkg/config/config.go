@@ -12,7 +12,11 @@ type Config struct {
 }
 
 type DatabaseConfig struct {
-	ConnectionString string `yaml:"connectionString"`
+	ConnectionString       string `yaml:"connectionString"`
+	MaxConnections         int    `yaml:"maxConnections"`
+	MaxConnectionsIdleTime int    `yaml:"maxConnectionsIdleTime"`
+	MaxConnectionsLifetime int    `yaml:"maxConnectionsLifetime"`
+	MinIdleConnections     int    `yaml:"minIdleConnections"`
 }
 
 func Load(pathFile string) (*Config, error) {
