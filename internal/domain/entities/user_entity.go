@@ -21,6 +21,15 @@ type User struct {
 	UpdatedAt time.Time
 }
 
+func NewUser(username string, password string) *User {
+	return &User{
+		Username:  username,
+		Password:  password,
+		CreatedAt: time.Now(),
+		UpdatedAt: time.Now(),
+	}
+}
+
 func (u *User) Validate() error {
 	if err := u.validateUsername(); err != nil {
 		return err
