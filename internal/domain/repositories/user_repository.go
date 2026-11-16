@@ -1,3 +1,4 @@
+// Package repositories
 package repositories
 
 import (
@@ -11,6 +12,6 @@ type UserRepository interface {
 	UpdateUsername(ctx context.Context, id int64, newUsername string) error
 	UpdatePassword(ctx context.Context, id int64, newPassword string) error
 	DeleteByID(ctx context.Context, id int64) error
-	GetByID(ctx context.Context, id int64) error
-	GetByUsername(ctx context.Context, username string) error
+	GetByID(ctx context.Context, id int64) (*entities.User, error)
+	GetByUsername(ctx context.Context, username string) (*entities.User, error)
 }
